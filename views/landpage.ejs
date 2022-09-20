@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4">Blog Articles</h1>
+    <a href="/" class="btn btn-secondary">logout</a>
+  
+    <% articles.forEach(article => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+
+          <form action="/articles/<%= article.id %>/like" method="POST" class="d-inline">
+            <button onclick="done" type="submit" class="btn btn-primary">like</button>
+          </form>
+          <br>
+          <br>
+
+          <form action="/articles/<%= article.id %>/comment" method="POST" class="d-inline">
+          <div class="form-outline mb-4">
+            <input type="text" id="comments" placeholder="write your comments" name='comments'
+              required class="form-control form-control-lg" />
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-lg btn-block" required>post comments</button>
+        </form>
+        <div class="card-text mb-2"><h4 style="color:rgba(185, 228, 30, 0.836);">Likes on this Blogs are <%= article.likes %> </h4> </div>
+        <div class="card-text mb-2"><h4 style="color:rgba(23, 24, 22, 0.836);">comments on Blogs are : 
+          <table>
+            <% for(var i=0; i < (article.comment).length; i++) { %>
+               <tr>
+                 <td><%= article.comment[i] %></td>
+               </tr>
+            <% } %>
+            </table>
+        </h4> </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

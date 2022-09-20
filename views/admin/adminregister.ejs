@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <title> Admin Register</title>
+</head>
+
+<body>
+
+
+  <ul>
+    <% if (typeof errors !='undefined' ) { %>
+      <% errors.forEach(error=> { %>
+        <li>
+          <%= error.message %>
+        </li>
+        <% }) %>
+          <% } %>
+  </ul>
+
+  <section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -100px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+      <div class="card-body py-5 px-md-5">
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Register now As Admin</h2>
+            <form action="/adminregister" method="POST">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
+                <label class="form-label">Email address</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" class="form-control" id=" password" name="password" placeholder="Password"
+                  required />
+                <label class=" form-label">Password</label>
+              </div>
+
+              <!-- Password 2 input -->
+
+              <div class="form-outline mb-4">
+                <input type="password" class="form-control" id="password2" name="password2"
+                  placeholder="Confirm Password" required />
+                <label class="form-label">Password</label>
+              </div>
+
+              <!-- Key input -->
+
+              <div class="form-outline mb-4">
+                <input type="text" class="form-control" id="key" name="key" placeholder="Enter Key for Admin"
+                  required />
+                <label class="form-label">Key for creation of Admin account</label>
+              </div>
+
+
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4" value="Register">
+                register!
+              </button>
+
+              <p class="text-center">OR</p>
+
+              <a class="btn btn-primary btn-lg btn-block" style="background-color: #c53051" href="/adminlogin"
+                role="button">
+                <i class="fab fa-facebook-f me-2"></i>!!!login!!!
+            </form>
+
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</body>
+
+</html>
